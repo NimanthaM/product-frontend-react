@@ -16,7 +16,14 @@ const api = axios.create({
 export const getAllProducts = async () => {
     try {
         const response = await api.get('/products');
-        return response.data;
+        // Transform image URLs to use full backend URL
+        const products = response.data.map(product => ({
+            ...product,
+            image_url: product.image_url.startsWith('http') 
+                ? product.image_url 
+                : `http://localhost:8000${product.image_url}`
+        }));
+        return products;
     } catch (error) {
         console.error('Error fetching products:', error);
         throw error;

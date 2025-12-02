@@ -1,8 +1,9 @@
 import React from 'react';
+import { Eye } from 'lucide-react';
 
-const ProductCard = ({ product, onAddToCart }) => {
+const ProductCard = ({ product, onAddToCart, onViewDetails }) => {
     return (
-        <div className="product-card">
+        <div className="product-card group">
             {/* Product Image */}
             <div className="relative h-64 overflow-hidden bg-gray-200">
                 <img
@@ -17,6 +18,17 @@ const ProductCard = ({ product, onAddToCart }) => {
                 <div className="absolute top-4 right-4 bg-primary-600 text-white px-3 py-1 rounded-full font-bold shadow-lg">
                     ${parseFloat(product.price).toFixed(2)}
                 </div>
+
+                {/* View Details Button - Shows on Hover */}
+                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                    <button
+                        onClick={() => onViewDetails(product)}
+                        className="bg-white text-primary-600 px-6 py-3 rounded-lg font-semibold flex items-center space-x-2 transform scale-95 group-hover:scale-100 transition-transform duration-300 hover:bg-primary-600 hover:text-white shadow-lg"
+                    >
+                        <Eye className="w-5 h-5" />
+                        <span>View Details</span>
+                    </button>
+                </div>
             </div>
 
             {/* Product Details */}
@@ -29,17 +41,19 @@ const ProductCard = ({ product, onAddToCart }) => {
                     {product.description}
                 </p>
 
-                {/* Price and Button */}
-                <div className="flex items-center justify-between mt-4">
-                    <div>
-                        <span className="text-2xl font-bold text-primary-600">
-                            ${parseFloat(product.price).toFixed(2)}
-                        </span>
-                    </div>
+                {/* Action Buttons */}
+                <div className="flex items-center gap-2 mt-4">
+                    <button
+                        onClick={() => onViewDetails(product)}
+                        className="flex-1 border-2 border-primary-600 text-primary-600 px-4 py-2 rounded-lg font-semibold hover:bg-primary-50 transition-colors duration-200 flex items-center justify-center space-x-2"
+                    >
+                        <Eye className="w-4 h-4" />
+                        <span>View</span>
+                    </button>
 
                     <button
                         onClick={() => onAddToCart(product)}
-                        className="btn-primary flex items-center space-x-2 text-sm"
+                        className="flex-1 btn-primary flex items-center justify-center space-x-2 text-sm"
                     >
                         <svg
                             className="w-5 h-5"
@@ -54,7 +68,7 @@ const ProductCard = ({ product, onAddToCart }) => {
                                 d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
                             />
                         </svg>
-                        <span>Add to Cart</span>
+                        <span>Add</span>
                     </button>
                 </div>
             </div>

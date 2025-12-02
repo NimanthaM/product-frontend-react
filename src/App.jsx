@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Banner from './components/Banner';
 import Products from './components/Products';
 import Footer from './components/Footer';
+import ProductDetailModal from './components/ProductDetailModal';
 import { getAllProducts } from './services/api';
 import './index.css';
 
@@ -12,6 +13,8 @@ function App() {
     const [loading, setLoading] = useState(true);
     const [cartCount, setCartCount] = useState(0);
     const [error, setError] = useState(null);
+    const [selectedProduct, setSelectedProduct] = useState(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     // Fetch products from API
     useEffect(() => {
@@ -21,13 +24,21 @@ function App() {
     const fetchProducts = async () => {
         try {
             setLoading(true);
-            setError(null);
+            setError(null); // Clear any previous errors
             const data = await getAllProducts();
-            setProducts(data);
-            setFilteredProducts(data);
+
+            if (data && data.length > 0) {
+                setProducts(data);
+                setFilteredProducts(data);
+                setError(null); // Explicitly clear error on success
+            } else {
+                setError('No products found.');
+            }
         } catch (err) {
             setError('Failed to load products. Please make sure the backend server is running.');
             console.error('Error fetching products:', err);
+            setProducts([]);
+            setFilteredProducts([]);
         } finally {
             setLoading(false);
         }
@@ -70,12 +81,24 @@ function App() {
         }, 3000);
     };
 
+    // Handle view product details
+    const handleViewDetails = (product) => {
+        setSelectedProduct(product);
+        setIsModalOpen(true);
+    };
+
+    // Handle close modal
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
+        setTimeout(() => setSelectedProduct(null), 300); // Delay to allow animation
+    };
+
     return (
         <div className="min-h-screen flex flex-col">
             <Header cartCount={cartCount} onSearch={handleSearch} />
             <Banner />
 
-            {error && (
+            {error && products.length === 0 && !loading && (
                 <div className="container mx-auto px-4 py-8">
                     <div className="bg-red-100 border border-red-400 text-red-700 px-6 py-4 rounded-lg">
                         <div className="flex items-center space-x-2">
@@ -101,9 +124,18 @@ function App() {
                 products={filteredProducts}
                 loading={loading}
                 onAddToCart={handleAddToCart}
+                onViewDetails={handleViewDetails}
             />
 
             <Footer />
+
+            {/* Product Detail Modal */}
+            <ProductDetailModal
+                product={selectedProduct}
+                isOpen={isModalOpen}
+                onClose={handleCloseModal}
+                onAddToCart={handleAddToCart}
+            />
         </div>
     );
 }

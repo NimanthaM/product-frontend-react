@@ -1,7 +1,7 @@
 import React from 'react';
 import ProductCard from './ProductCard';
 
-const Products = ({ products, loading, onAddToCart }) => {
+const Products = ({ products, loading, onAddToCart, onViewDetails }) => {
     if (loading) {
         return (
             <section id="products" className="py-16 bg-gray-50">
@@ -74,7 +74,11 @@ const Products = ({ products, loading, onAddToCart }) => {
                             className="animate-slide-up"
                             style={{ animationDelay: `${index * 0.1}s` }}
                         >
-                            <ProductCard product={product} onAddToCart={onAddToCart} />
+                            <ProductCard
+                                product={product}
+                                onAddToCart={onAddToCart}
+                                onViewDetails={onViewDetails}
+                            />
                         </div>
                     ))}
                 </div>
