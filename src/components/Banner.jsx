@@ -9,11 +9,45 @@ const Banner = () => {
     };
 
     return (
-        <section id="home" className="bg-gradient-to-r from-primary-600 to-primary-800 text-white py-20">
-            <div className="container mx-auto px-4">
+        <section
+            id="home"
+            className="relative text-white py-20 overflow-hidden"
+            style={{
+                backgroundImage: 'url("https://images.unsplash.com/photo-1498049794561-7780e7231661?w=1920&q=80")',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundAttachment: 'fixed'
+            }}
+        >
+            {/* Animated gradient overlay with multiple layers */}
+            <div className="absolute inset-0 bg-gradient-to-br from-slate-900/80 via-blue-900/70 to-purple-900/80"></div>
+
+            {/* Animated diagonal stripes overlay */}
+            <div className="absolute inset-0 opacity-10"
+                style={{
+                    backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.05) 35px, rgba(255,255,255,.05) 70px)'
+                }}
+            ></div>
+
+            {/* Subtle blur effect */}
+            <div className="absolute inset-0 backdrop-blur-[2px]"></div>
+
+            {/* Radial gradient spotlight effect */}
+            <div className="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-slate-900/50"></div>
+
+            {/* Content */}
+            <div className="container mx-auto px-4 relative z-10">
                 <div className="max-w-4xl mx-auto text-center animate-fade-in">
-                    <h2 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-                        Welcome to Aahaas Ecommerce
+                    <h2 className="text-5xl md:text-6xl font-bold mb-6 leading-tight flex flex-col items-center justify-center gap-2">
+                        <span className="whitespace-nowrap">Welcome to</span>
+                        <div className="flex items-center gap-4">
+                            <img
+                                src="/images/aahaas-logo.png"
+                                alt="Aahaas"
+                                className="h-20 md:h-28 w-auto object-contain"
+                            />
+                            <span>Ecommerce</span>
+                        </div>
                     </h2>
                     <p className="text-xl md:text-2xl mb-4 text-primary-100">
                         Discover Amazing Products at Unbeatable Prices

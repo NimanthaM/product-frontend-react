@@ -17,16 +17,18 @@ const Header = ({ cartCount, onSearch }) => {
     };
 
     return (
-        <header className="bg-white shadow-md sticky top-0 z-50">
+        <header className="bg-gray-900 shadow-lg sticky top-0 z-50">
             <div className="container mx-auto px-4 py-4">
                 <div className="flex items-center justify-between flex-wrap gap-4">
                     {/* Logo */}
-                    <div className="flex items-center space-x-2">
-                        <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-primary-700 rounded-lg flex items-center justify-center">
-                            <span className="text-white font-bold text-xl">A</span>
-                        </div>
-                        <h1 className="text-2xl font-bold text-gray-800">
-                            Aahaas <span className="text-primary-600">Ecommerce</span>
+                    <div className="flex items-start space-x-3">
+                        <img
+                            src="/images/aahaas-logo.png"
+                            alt="Aahaas Logo"
+                            className="h-14 w-auto object-contain"
+                        />
+                        <h1 className="text-2xl font-bold text-cyan-400 mt-2">
+                            Ecommerce
                         </h1>
                     </div>
 
@@ -34,19 +36,19 @@ const Header = ({ cartCount, onSearch }) => {
                     <nav className="hidden md:flex items-center space-x-8">
                         <button
                             onClick={() => scrollToSection('home')}
-                            className="text-gray-700 hover:text-primary-600 font-medium transition-colors"
+                            className="text-white hover:text-primary-400 font-medium transition-colors"
                         >
                             Home
                         </button>
                         <button
                             onClick={() => scrollToSection('products')}
-                            className="text-gray-700 hover:text-primary-600 font-medium transition-colors"
+                            className="text-white hover:text-primary-400 font-medium transition-colors"
                         >
                             Products
                         </button>
                         <button
                             onClick={() => scrollToSection('footer')}
-                            className="text-gray-700 hover:text-primary-600 font-medium transition-colors"
+                            className="text-white hover:text-primary-400 font-medium transition-colors"
                         >
                             Contact
                         </button>
@@ -60,7 +62,7 @@ const Header = ({ cartCount, onSearch }) => {
                                 placeholder="Search products..."
                                 value={searchTerm}
                                 onChange={handleSearchChange}
-                                className="input-search pl-10"
+                                className="w-full px-4 py-2 pl-10 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 bg-gray-800 text-white placeholder-gray-400"
                             />
                             <svg
                                 className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400"
@@ -80,7 +82,7 @@ const Header = ({ cartCount, onSearch }) => {
 
                     {/* Cart Icon */}
                     <div className="relative">
-                        <button className="relative p-2 text-gray-700 hover:text-primary-600 transition-colors">
+                        <button className="relative p-2 text-white hover:text-primary-400 transition-colors">
                             <svg
                                 className="w-8 h-8"
                                 fill="none"

@@ -2,7 +2,7 @@
 
 A modern, responsive React.js frontend for the Aahaas Ecommerce application, built with Vite and styled with Tailwind CSS.
 
-## 🚀 Features
+## Features
 
 - **Modern UI/UX**: Clean, professional design with smooth animations
 - **Responsive Design**: Fully responsive for desktop, tablet, and mobile devices
@@ -14,7 +14,7 @@ A modern, responsive React.js frontend for the Aahaas Ecommerce application, bui
 - **Smooth Scrolling**: Navigation with smooth scroll effects
 - **Hover Animations**: Interactive hover effects on product cards
 
-## 📋 Prerequisites
+## Prerequisites
 
 Before you begin, ensure you have the following installed:
 
@@ -31,7 +31,7 @@ npm --version
 
 If you don't have Node.js, download it from: https://nodejs.org/
 
-## 🛠️ Installation & Setup
+## Installation & Setup
 
 Follow these steps to set up the project on your local machine:
 
@@ -85,15 +85,15 @@ VITE v5.4.21  ready in 413 ms
 ➜  press h + enter to show help
 ```
 
-✅ **The application is now running at:** `http://localhost:3000`
+ **The application is now running at:** `http://localhost:3000`
 
 The browser may automatically open. If not, manually navigate to http://localhost:3000
 
 **Keep this PowerShell window open!** The server will stop if you close it.
 
-## 📡 Connecting to Backend
+## Connecting to Backend
 
-**⚠️ CRITICAL**: The frontend will NOT work without the backend running!
+**CRITICAL**: The frontend will NOT work without the backend running!
 
 ### Before starting the frontend:
 
@@ -122,7 +122,7 @@ The browser may automatically open. If not, manually navigate to http://localhos
 
 **Keep BOTH PowerShell windows open** while using the application!
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 product-frontend-react/
@@ -147,7 +147,7 @@ product-frontend-react/
 └── README.md                       # This file
 ```
 
-## 🎨 Components Overview
+## Components Overview
 
 ### Header
 - Logo and navigation
@@ -181,7 +181,7 @@ product-frontend-react/
 - Contact information
 - Copyright notice
 
-## 🎯 Available Scripts
+## Available Scripts
 
 ### Development
 ```powershell
@@ -201,7 +201,7 @@ npm run preview
 ```
 Preview the production build locally
 
-## 🎨 Styling
+## Styling
 
 This project uses **Tailwind CSS** for styling with custom configurations:
 
@@ -213,7 +213,7 @@ This project uses **Tailwind CSS** for styling with custom configurations:
 ### Tailwind Configuration
 See `tailwind.config.js` for custom theme extensions.
 
-## 🔌 API Integration
+## API Integration
 
 The application communicates with the Laravel backend using Axios.
 
@@ -230,31 +230,31 @@ import { getAllProducts } from './services/api';
 const data = await getAllProducts();
 ```
 
-## ✨ Features Implementation
+## Features Implementation
 
-### 🔍 Search Functionality
+### Search Functionality
 - Real-time filtering as you type
 - Searches both product name and description
 - Case-insensitive search
 
-### 🛒 Shopping Cart Counter
+### Shopping Cart Counter
 - Displays number of items added to cart
 - Animated counter badge
 - Updates instantly when adding items
 - Visual notification when item is added
 
-### ⏳ Loading States
+### Loading States
 - Beautiful spinner animation while fetching data
 - Loading message for better UX
 - Prevents layout shift during loading
 
-### 🎭 Hover Animations
+### Hover Animations
 - Product cards lift up on hover
 - Image zoom effect on hover
 - Button scale effect on hover
 - Smooth transitions throughout
 
-## 🔧 Troubleshooting
+## Troubleshooting
 
 ### Issue: "Error Loading Products" or blank page
 **Solution**: 
@@ -313,7 +313,7 @@ npm run dev -- --port 3001
 npm run dev
 ```
 
-## 📦 Dependencies
+## Dependencies
 
 Main dependencies used in this project:
 
@@ -323,144 +323,5 @@ Main dependencies used in this project:
 - **vite** (^5.0.8) - Fast build tool and dev server
 - **tailwindcss** (^3.4.0) - Utility-first CSS framework
 
-## 🚀 Deployment
-
-### Build for Production
-
-1. Create production build:
-```bash
-npm run build
-```
-
-2. The `dist/` folder contains production-ready files
-
-3. Deploy the `dist/` folder to any static hosting service:
-   - Vercel
-   - Netlify
-   - GitHub Pages
-   - AWS S3
-   - Firebase Hosting
-
-### Vercel Deployment (Recommended)
-
-1. Install Vercel CLI:
-```bash
-npm install -g vercel
-```
-
-2. Deploy:
-```bash
-vercel
-```
-
-### Netlify Deployment
-
-1. Build the project:
-```bash
-npm run build
-```
-
-2. Drag and drop the `dist/` folder to Netlify
-
-**Note**: Remember to update the API_BASE_URL in `src/services/api.js` to point to your production backend.
-
-## 🎨 Customization
-
-### Change Colors
-Edit `tailwind.config.js`:
-```javascript
-theme: {
-  extend: {
-    colors: {
-      primary: {
-        // Add your custom colors here
-      }
-    }
-  }
-}
-```
-
-### Change Logo
-Edit the Header component in `src/components/Header.jsx`
-
-### Change Banner Text
-Edit the Banner component in `src/components/Banner.jsx`
-
-## 🔒 Security Notes
-
-- API calls are made over HTTP in development
-- For production, use HTTPS for both frontend and backend
-- Never commit sensitive API keys
-- Use environment variables for configuration
-
-## 📱 Browser Support
-
-This application works on all modern browsers:
-- Chrome (recommended)
-- Firefox
-- Safari
-- Edge
-- Opera
-
-## 🎯 Quick Start Guide
-
-**The fastest way to run this project:**
-
-1. **Start XAMPP MySQL** (XAMPP Control Panel → Start MySQL)
-
-2. **Terminal 1 - Backend:**
-   ```powershell
-   cd "C:\Users\Nima's TUF\Desktop\Aahaas Ecommerce\product-api-laravel"
-   C:\xampp\php\php.exe artisan serve
-   ```
-   ✅ Keep this running at http://127.0.0.1:8000
-
-3. **Terminal 2 - Frontend:**
-   ```powershell
-   cd "C:\Users\Nima's TUF\Desktop\Aahaas Ecommerce\product-frontend-react"
-   npm run dev
-   ```
-   ✅ Open http://localhost:3000 in browser
-
-**That's it!** You should see 8 products with images and working "Add to Cart" buttons.
-
 ---
 
-## 📝 License
-
-This project is open-source and available under the MIT License.
-
-## 👨‍💻 Author
-
-Created as part of the Aahaas Ecommerce full-stack development assignment.
-
-## 🤝 Support
-
-If you encounter any issues:
-
-1. Make sure Node.js and npm are installed
-2. Ensure all dependencies are installed (`npm install`)
-3. Check that the backend server is running
-4. Clear browser cache and reload
-5. Check browser console for errors
-
-## 🎉 Features Checklist
-
-- ✅ Header with logo, navigation, search, and cart
-- ✅ Banner section with tagline and CTA
-- ✅ Product cards with images, names, descriptions, and prices
-- ✅ "Add to Cart" buttons
-- ✅ Footer with social media icons
-- ✅ Responsive design (mobile, tablet, desktop)
-- ✅ Tailwind CSS styling
-- ✅ API integration with Laravel backend
-- ✅ Search/filter functionality (Bonus)
-- ✅ Shopping cart counter (Bonus)
-- ✅ Loading states (Bonus)
-- ✅ Hover animations (Bonus)
-
----
-
-**Happy Coding! 🎉**
-
-**Remember**: This frontend needs the Laravel backend to be running to fetch products!
