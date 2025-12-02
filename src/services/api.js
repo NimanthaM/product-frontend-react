@@ -19,8 +19,8 @@ export const getAllProducts = async () => {
         // Transform image URLs to use full backend URL
         const products = response.data.map(product => ({
             ...product,
-            image_url: product.image_url.startsWith('http') 
-                ? product.image_url 
+            image_url: product.image_url.startsWith('http')
+                ? product.image_url
                 : `http://localhost:8000${product.image_url}`
         }));
         return products;
