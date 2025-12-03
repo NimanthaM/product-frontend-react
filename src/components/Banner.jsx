@@ -42,9 +42,9 @@ const Banner = () => {
                         <span className="whitespace-nowrap">Welcome to</span>
                         <div className="flex items-center gap-4">
                             <img
-                                src="/images/aahaas-logo.png"
+                                src="/images/aahaas.png"
                                 alt="Aahaas"
-                                className="h-20 md:h-28 w-auto object-contain"
+                                className="h-12 md:h-16 w-auto object-contain"
                             />
                             <span>Ecommerce</span>
                         </div>
